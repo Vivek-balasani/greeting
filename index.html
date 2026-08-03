@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greeting Page</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        text-align: center;
+        width: 350px;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+    select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        margin-bottom: 35px;
+    }
+
+    /* Heart Button */
+    .heart-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .heart-btn {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        background: #ff4d6d;
+        transform: rotate(-45deg);
+        border: none;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: transform 0.2s;
+    }
+
+    .heart-btn:hover {
+        transform: rotate(-45deg) scale(1.1);
+    }
+
+    .heart-btn::before,
+    .heart-btn::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: #ff4d6d;
+        border-radius: 50%;
+    }
+
+    .heart-btn::before {
+        top: -35px;
+        left: 0;
+    }
+
+    .heart-btn::after {
+        left: 35px;
+        top: 0;
+    }
+
+    .heart-text {
+        font-weight: bold;
+        color: #d6336c;
+        margin-bottom: 15px;
+    }
+
+    #message {
+        margin-top: 20px;
+        font-size: 22px;
+        color: green;
+        font-weight: bold;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Good Morning ☀️</h1>
+
+    <select id="person">
+        <option value="">-- Select your name --</option>
+        <option>Cutie</option>
+        <option>Potti</option>
+        <option>Chinky</option>
+        <option>Manas</option>
+        <option>Buddi</option>
+    </select>
+
+    <div class="heart-container">
+        <div class="heart-text">Click this Heart ❤️</div>
+
+        <button class="heart-btn" onclick="showMessage()"></button>
+    </div>
+
+    <div id="message"></div>
+
+</div>
+
+<script>
+function showMessage() {
+
+    let person = document.getElementById("person").value;
+    let message = document.getElementById("message");
+
+    if(person === ""){
+        alert("Please select your name first!");
+        return;
+    }
+
+    message.innerHTML = "You have the best smile, so always carry it ❤️❤️ \n Have a beautiful day <b>" + person + "</b> ❤️❤️ ";
+}
+</script>
+
+</body>
+</html>
